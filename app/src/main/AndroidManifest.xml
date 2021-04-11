@@ -12,7 +12,7 @@
         android:theme="@style/Theme.FindRoots">
         <service
             android:name=".CalculateRootsService"
-            android:exported="false"></service>
+            android:exported="false" />
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
 
-<!--        TODO create a new class extending Activity and register it here in an <activity> tag -->
+        <activity android:name=".ResultActivity"/>
 
     </application>
 
