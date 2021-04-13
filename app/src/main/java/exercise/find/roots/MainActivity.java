@@ -46,9 +46,18 @@ public class MainActivity extends AppCompatActivity {
       public void onTextChanged(CharSequence s, int start, int before, int count) { }
       public void afterTextChanged(Editable s) {
         // text did change
-        String curInput = editTextUserInput.getText().toString();
-        boolean isNumber = TextUtils.isDigitsOnly(curInput);
-        buttonCalculateRoots.setEnabled(isNumber && !curInput.isEmpty());
+      String curInput = editTextUserInput.getText().toString();
+      boolean isNumber = TextUtils.isDigitsOnly(curInput);
+      if (TextUtils.isDigitsOnly(curInput)){
+          try{
+              Long num = Long.parseLong(curInput);
+          }
+          catch (NumberFormatException e){
+              buttonCalculateRoots.setEnabled(false);
+              return;
+          }
+      }
+       buttonCalculateRoots.setEnabled(isNumber && !curInput.isEmpty());
       }
     });
 
