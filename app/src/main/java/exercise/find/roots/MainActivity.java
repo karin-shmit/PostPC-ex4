@@ -51,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
       if (TextUtils.isDigitsOnly(curInput)){
           try{
               Long num = Long.parseLong(curInput);
+              if (num == 0){
+                  buttonCalculateRoots.setEnabled(false);
+                  return;
+              }
           }
           catch (NumberFormatException e){
               buttonCalculateRoots.setEnabled(false);
