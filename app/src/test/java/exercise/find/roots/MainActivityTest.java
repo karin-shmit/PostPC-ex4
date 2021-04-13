@@ -1,7 +1,9 @@
 package exercise.find.roots;
 
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import junit.framework.TestCase;
 
@@ -45,29 +47,25 @@ public class MainActivityTest extends TestCase {
     EditText inputEditText = mainActivity.findViewById(R.id.editTextInputNumber);
     Button button = mainActivity.findViewById(R.id.buttonCalculateRoots);
 
-    // test: insert input to the edit text and verify that the button is enabled
-    // TODO: implement
+    inputEditText.setText("120");
+    assertTrue(button.isEnabled());
   }
 
-  // TODO: add 1 or 2 more unit tests to the activity. so your "writing tests" skill won't get rusty.
-  //  possible flows to unit-test:
-  //  - when activity launches, "progress" starts hidden
-  //  - when inserting a good number and clicking the button, "progress" should be displayed
-  //  - when user is entering a bad input (for example "17.3") the button should be disabled
-  //  - when user is entering a good input and than deleting it, the button should be enabled and then disabled again
-  //  - when user entered input and than activity recreates (user flipped the screen), the input in the new edit text is still there
-  //  - when starting a calculation the button should be locked (disabled)
-  //  - when starting a calculation and than activity receives "stopped_calculations" broadcast, the button should be unlocked (enabled)
-  //  - when starting a calculation and than activity receives "stopped_calculations" broadcast, "progress" should disappear
-  //
-  // to mock a click on the button:
-  //    call `button.performClick()`
-  //
-  // to mock inserting input to the edit-text:
-  //    call `editText.setText("input here")`
-  //
-  // to mock sending a broadcast:
-  //    create the broadcast intent (example: `new Intent("my_action_here")` ) and put extras
-  //    call `RuntimeEnvironment.application.sendBroadcast()` to send the broadcast
-  //    call `Shadows.shadowOf(Looper.getMainLooper()).idle();` to let the android OS time to process the broadcast the let your activity consume it
+  @Test
+  public void when_activity_launches_progress_starts_hidden(){
+    MainActivity mainActivity = Robolectric.buildActivity(MainActivity.class).create().visible().get();
+    ProgressBar progressBar = mainActivity.findViewById(R.id.progressBar);
+    assertEquals(View.GONE, progressBar.getVisibility());
+  }
+
+  @Test
+  public void when_inserting_good_number_and_clicking_the_button_progress_should_be_displayed(){
+    MainActivity mainActivity = Robolectric.buildActivity(MainActivity.class).create().visible().get();
+    ProgressBar progressBar = mainActivity.findViewById(R.id.progressBar);
+    EditText inputEditText = mainActivity.findViewById(R.id.editTextInputNumber);
+    Button button = mainActivity.findViewById(R.id.buttonCalculateRoots);
+    inputEditText.setText("120");
+    button.performClick();
+    assertEquals(View.VISIBLE, progressBar.getVisibility());
+  }
 }
