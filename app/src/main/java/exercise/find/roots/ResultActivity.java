@@ -17,8 +17,8 @@ public class ResultActivity extends Activity {
         long passedTime = intent.getLongExtra("time_passed_seconds", 0);
 
         TextView originalNumberView = findViewById(R.id.original_number);
-        TextView root1View = findViewById(R.id.root1Text);
-        TextView root2View = findViewById(R.id.root2Text);
+        TextView root1View = findViewById(R.id.root1);
+        TextView root2View = findViewById(R.id.root2);
         TextView passedTimeView = findViewById(R.id.passedTimeText);
 
         String original = getString(R.string.original_number)+String.valueOf(original_number);

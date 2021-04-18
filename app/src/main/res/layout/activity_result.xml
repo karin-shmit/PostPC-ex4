@@ -16,7 +16,7 @@
         android:textAlignment="center"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/root2Text"
+        app:layout_constraintBottom_toTopOf="@+id/root2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.893" />
 
     <TextView
-        android:id="@+id/root1Text"
+        android:id="@+id/root1"
         android:layout_width="149dp"
         android:layout_height="78dp"
         android:fontFamily="monospace"
@@ -33,14 +33,14 @@
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/root2Text"
+        app:layout_constraintEnd_toStartOf="@+id/root2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.308" />
 
     <TextView
-        android:id="@+id/root2Text"
+        android:id="@+id/root2"
         android:layout_width="226dp"
         android:layout_height="76dp"
         android:fontFamily="monospace"
@@ -51,7 +51,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/root1Text"
+        app:layout_constraintStart_toEndOf="@+id/root1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.308" />
 
@@ -67,7 +67,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/root1Text"
+        app:layout_constraintTop_toBottomOf="@+id/root1"
         app:layout_constraintVertical_bias="0.027" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
